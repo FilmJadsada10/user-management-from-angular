@@ -1,0 +1,9 @@
+.no-focus-style:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.custom-input {
+    border-radius: 12px;
+
+}

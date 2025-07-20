@@ -1,0 +1,134 @@
+<!-- Backdrop -->
+<div
+  class="modal-backdrop fade show"
+  style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #192038; z-index: 1040;"
+  (click)="onClose()"
+></div>
+
+<!-- Modal Dialog -->
+<div
+  class="modal show d-block"
+  tabindex="-1"
+  style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+         border-radius: 12px; max-width: 1000px; width: 90%; max-height: 90vh; z-index: 1050;">
+  <div class="modal-content pt-3 pb-3" style="border-radius: 12px;">
+    <div class="d-flex justify-content-between align-items-center mb-2 me-3 ms-3">
+      <h4 class="modal-title fw-semibold" style="font-size: 13px;">Add User</h4>
+      <button class="btn-close" (click)="onClose()"></button>
+    </div>
+    <hr />
+
+    <form>
+      <div class="me-3 ms-3 mt-3">
+        <!-- User ID -->
+        <div class="row">
+          <div class="col-md-12">
+            <input type="text" class="form-control no-focus-style" placeholder="User ID *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.userId" name="userId" required />
+          </div>
+        </div>
+
+        <!-- Name -->
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <input type="text" class="form-control no-focus-style" placeholder="First Name *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.firstName" name="firstName" required />
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control no-focus-style" placeholder="Last Name *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.lastName" name="lastName" required />
+          </div>
+        </div>
+
+        <!-- Email & Phone & Role -->
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <input type="email" class="form-control no-focus-style" placeholder="Email ID *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.email" name="email" required />
+          </div>
+          <div class="col-md-4">
+            <input type="text" class="form-control no-focus-style" placeholder="Mobile No"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.phone" name="phone" />
+          </div>
+          <div class="col-md-4">
+            <select class="form-select no-focus-style" style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.roleId" name="roleId" required>
+              <!-- Placeholder (แสดงเหมือน input) -->
+              <option value="" disabled selected hidden>Select Role Type</option>
+              <option *ngFor="let role of roles" [value]="role.roleId">{{ role.roleName }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Username & Password -->
+        <div class="row mt-3">
+          <div class="col-md-4">
+            <input type="text" class="form-control no-focus-style" placeholder="Username *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.username" name="username" required />
+          </div>
+          <div class="col-md-4">
+            <input type="password" class="form-control no-focus-style" placeholder="Password *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="user.password" name="password" required />
+          </div>
+          <div class="col-md-4">
+            <input type="password" class="form-control no-focus-style" placeholder="Confirm password *"
+              style="font-size: 10px; font-weight: normal; color: #222b45;"
+              [(ngModel)]="confirmPassword" name="confirmPassword" required />
+          </div>
+        </div>
+      </div>
+
+      <!-- Permissions Table -->
+      <div class="mt-5">
+        <table class="table table-bordered text-center align-middle no-col-border w-100">
+          <thead class="align-middle" style="height: 50px; border: 1px solid #eff4fa;">
+            <tr>
+              <th class="text-start fw-semibold col-bg" style="padding-left: 12px; font-size: 11px; color: #8f9bb3;">Module Permission</th>
+              <th class="fw-semibold ps-2 col-bg" style="font-size: 11px; color: #8f9bb3;">Read</th>
+              <th class="fw-semibold ps-2 col-bg" style="font-size: 11px; color: #8f9bb3;">Write</th>
+              <th class="fw-semibold ps-2 col-bg" style="font-size: 11px; color: #8f9bb3;">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let permission of permissions" class="align-middle line-table-custom" style="height: 43px;">
+              <td class="text-start fw-normal" style="padding-left: 16px; font-size: 10px; color: #222b45;">
+                {{ permission.permissionName }}
+              </td>
+              <td>
+                <input type="checkbox" class="custom-checkbox-dark"
+                  (change)="togglePermission(permission, 'read', $event)" />
+              </td>
+              <td>
+                <input type="checkbox" class="custom-checkbox-dark"
+                  (change)="togglePermission(permission, 'write', $event)" />
+              </td>
+              <td>
+                <input type="checkbox" class="custom-checkbox-dark"
+                  (change)="togglePermission(permission, 'delete', $event)" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-end mt-4">
+        <button class="btn fw-semibold" type="button" (click)="onAddUser()"
+          style="height: 30px; font-size: 10px; color: white; background-color: #0095ff;">
+          Add User
+        </button>
+        <button class="btn me-2 fw-semibold" type="button" (click)="onClose()"
+          style="height: 30px; font-size: 10px; color: #8f9bb3;">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

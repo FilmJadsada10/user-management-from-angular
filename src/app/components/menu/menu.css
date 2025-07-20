@@ -1,0 +1,54 @@
+.text-title {
+    color: rgb(10, 10, 10);
+    font-size: 16px;
+    margin-bottom: 0px;
+}
+
+a {
+  gap: 14px;
+  text-decoration: none;
+  color: #757575;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* --- ไอคอน SVG --- */
+a svg {
+  color: #757575;
+  transition: color 0.3s;
+  stroke: #757575;
+  stroke-width: 2%;
+}
+
+/* svg.bi {
+  stroke: #757575;
+} */
+
+/* --- ข้อความในลิงก์ --- */
+a span {
+  color: #757575;
+  font-size: 13px;
+  transition: color 0.3s ease;
+}
+
+/* --- เมื่อ Active --- */
+a.active span {
+  color: #4a85f6;
+  font-weight: 400;
+}
+
+a.active svg {
+  stroke: #4a85f6;
+  stroke-width: 1;
+  fill: none;
+}
+
+a.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 4px;
+  height: 30px;
+  background-color: #4a85f6;
+}

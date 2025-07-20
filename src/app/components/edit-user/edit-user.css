@@ -1,0 +1,70 @@
+.modal-content {
+  background-color: #ffffff;
+}
+
+/* input.form-control {
+    font-size: 12px;
+    color: #222b45;
+    font-weight: normal;
+} */
+
+.no-focus-style:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.no-col-border td,
+.no-col-border th {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+input.form-control, select.form-select {
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+button.btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* ใน styles.css หรือ style tag */
+.custom-checkbox-dark {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  cursor: pointer;
+  position: relative;
+}
+
+.custom-checkbox-dark:checked {
+  background-color: #231f20;
+  border-color: #231f20;
+}
+
+.custom-checkbox-dark:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5.5px;
+  width: 4px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.col-bg {
+    color: #8f9bb3;
+    background-color: #eff4fa;
+}
+
+.line-table-custom td {
+  border: 1px solid #eff4fa; /* เปลี่ยนเป็นสีขอบที่ต้องการ */
+}

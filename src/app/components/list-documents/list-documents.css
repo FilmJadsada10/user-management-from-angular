@@ -1,0 +1,57 @@
+.text-header {
+  font-size: 13px;
+  color: rgb(34, 43, 69, 0.6);
+}
+
+.text-faded {
+  font-size: 9px;
+  color: rgba(70, 78, 95, 0.4); /* 40% ความชัด */
+}
+
+.line-faded {
+    height: 1px;
+    background-color: rgb(237, 242, 246, 0.5);
+    margin-bottom: 5px;
+}
+
+.tight-lines {
+  line-height: 0.5;
+}
+
+.row-underline {
+    border-bottom: 1px solid rgb(237, 242, 246, 0.5);
+    padding-bottom: 7px;
+}
+
+.text-title {
+    font-size: 10px;
+    color: rgb(34, 43, 69);
+}
+
+.custom-icon {
+    background-color: #ecf0f3;
+    border-radius: 6px;
+    color: #4a85f6;
+    width: 32px;
+    height: 32px;
+    margin-left: 24px;
+}
+
+.custom-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border: 2px solid #dddfe1;
+    border-radius: 3px;
+    color: #4a85f6;
+}
+
+.custom-btn:active {
+    background-color: #4a85f6;
+    border: 2px solid #4a85f6;
+    border-radius: 3px;
+    color: white;
+}

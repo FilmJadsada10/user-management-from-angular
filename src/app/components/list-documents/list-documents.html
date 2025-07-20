@@ -1,0 +1,38 @@
+<div class="bg-white rounded" style="margin-top: 16px; margin-left: 24px; padding-bottom: 15px;">
+  <!-- Header -->
+  <div class="pb-3 pt-3 ps-4 tight-lines">
+    <h4 class="fw-semibold text-header m-0 p-0">List of documents</h4>
+    <span class="text-faded m-0 p-0">Lorem ipsum lorem uojuhn</span>
+  </div>
+  <div class="line-faded"></div>
+
+  <!-- Document List -->
+  <div *ngFor="let doc of documents" class="d-flex align-items-center justify-content-between gap-2 mb-2 row-underline">
+    <div class="d-flex align-items-center">
+      <!-- Icon -->
+      <div class="custom-icon p-2 d-flex align-items-center justify-content-center">
+        <i class="bi bi-file-earmark-text"></i>
+      </div>
+
+      <!-- Title + Date + Description -->
+      <div class="d-flex flex-column" style="margin-left: 3.5rem; width: 100px;">
+        <div class="text-title fw-normal">{{ doc.title }}</div>
+        <div class="text-faded">{{ doc.date }}</div>
+      </div>
+
+      <div class="text-faded" style="margin-left: 10rem; margin-right: 24px; width: 270px;">
+        {{ doc.description }}
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex gap-2 align-items-center" style="margin-right: 40px;">
+      <button class="btn custom-btn">
+        <i class="bi bi-pencil-fill"></i>
+      </button>
+      <button class="btn custom-btn">
+        <i class="bi bi-trash-fill"></i>
+      </button>
+    </div>
+  </div>
+</div>

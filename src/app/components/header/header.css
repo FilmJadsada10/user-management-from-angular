@@ -1,0 +1,33 @@
+.text-header {
+    font-size: 16px;
+    color: rgb(10, 10, 10);
+}
+
+.text-desciption {
+    color: #757575;
+    font-size: 10px;
+}
+
+.user-profile {
+    width: 34px; 
+    height: 34px; 
+    border-radius: 50%; 
+    background-color: #bfbfbf;
+}
+
+.user-name {
+    font-size: 11px; 
+    color: #0a0a0a;
+}
+
+.user-role {
+    font-size: 8px; 
+    color: #0a0a0a;
+}
+
+.arrow-custom {
+    width: 24px; 
+    height: 24px; 
+    margin-top: 3px; 
+    margin-left: 3px;
+}

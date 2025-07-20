@@ -1,0 +1,76 @@
+<div class="card border-0 rounded-5" style="margin: 16px 20px 0 24px;">
+  <div class="card-header bg-white px-4 py-3 d-flex align-items-center text-header">
+    <h4 class="fw-semibold m-0 text-header">List Users</h4>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table align-middle mb-0 table-layout: fixed w-100">
+      <thead style="background-color: #f1f6fc; border: none;">
+        <tr class="align-middle line-table-custom" style="height: 65px; border: none;">
+          <th class="text-secondary col-bg ps-4" style="font-size: 13px; width: 320px;">Name</th>
+          <th class="text-secondary col-bg ps-4" style="font-size: 13px;"></th>
+          <th class="text-secondary col-bg" style="font-size: 13px;">Create Date</th>
+          <th class="text-secondary col-bg" style="font-size: 13px;">Role</th>
+          <th class="text-secondary col-bg" style="font-size: 13px;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="line-table-custom" *ngFor="let user of users" style="height: 64px; border-bottom: 1px solid #f1f1f1;">
+          <!-- Name & Email -->
+          <td class="ps-4">
+            <div class="fw-semibold text-dark" style="font-size: 14px;">
+              {{ user.firstName }} {{ user.lastName }}
+            </div>
+            <div class="text-muted" style="font-size: 12px;">
+              {{ user.email }}
+            </div>
+          </td>
+
+          <!-- แสดง permission แรก (ถ้ามี) -->
+          <td>
+            <ng-container *ngIf="user.permissions && user.permissions.length > 0; else noPermission">
+              <span
+                class="badge"
+                [ngClass]="getBadgeClass(user.permissions[0].permissionName)"
+              >
+                {{ user.permissions[0].permissionName }}
+              </span>
+            </ng-container>
+
+            <ng-template #noPermission>
+              <span class="text-muted">No Permissions</span>
+            </ng-template>
+          </td>
+
+
+
+          <!-- Create Date -->
+          <td style="font-size: 13px;">
+            {{ formatDate(user.createdDate) }}
+          </td>
+
+          <!-- Role badge -->
+              <td class="role">{{ user.role.roleName || "-" }}</td>
+
+          <!-- Actions -->
+          <td>
+            <div class="d-flex align-items-center gap-2">
+              <button class="btn btn-sm text-muted" style="border: none;" (click)="onEdit(user.userId)">
+                <i class="bi bi-pencil fs-6"></i>
+              </button>
+              <button class="btn btn-sm text-muted" style="border: none;" (click)="onDelete(user.userId)">
+                <i class="bi bi-trash fs-6"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-edit-user
+  *ngIf="selectedUserId"
+  [userId]="selectedUserId"
+  (close)="onCloseModal()"
+></app-edit-user>
